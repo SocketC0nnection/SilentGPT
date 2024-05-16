@@ -10,7 +10,7 @@ public class NotificationCommand extends Command {
 
     @Override
     public void onExecute() {
-        SilentGPT.getInstance().setNotification(!SilentGPT.getInstance().getNotification());
+        SilentGPT.getInstance().toggleNotification();
     }
 
 }

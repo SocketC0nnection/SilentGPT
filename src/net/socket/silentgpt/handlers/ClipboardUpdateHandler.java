@@ -41,6 +41,10 @@ public class ClipboardUpdateHandler {
                     return;
                 }
 
+                if(silentGPT.isStandby()) {
+                    return;
+                }
+
                 lastClipboardText = newClipboardText;
 
                 String answer = silentGPT.getHttpClient().send(newClipboardText);

@@ -10,7 +10,7 @@ public class RememberConversationCommand extends Command {
 
     @Override
     public void onExecute() {
-        SilentGPT.getInstance().setRememberConversation(!SilentGPT.getInstance().getRememberConversation());
+        SilentGPT.getInstance().toggleRememberConversation();
 
         if(SilentGPT.getInstance().getRememberConversation()) {
             SilentGPT.getInstance().getConversationManager().reset();

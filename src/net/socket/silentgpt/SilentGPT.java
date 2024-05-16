@@ -4,6 +4,7 @@ import net.socket.silentgpt.client.HttpClient;
 import net.socket.silentgpt.commands.CloseCommand;
 import net.socket.silentgpt.commands.NotificationCommand;
 import net.socket.silentgpt.commands.RememberConversationCommand;
+import net.socket.silentgpt.commands.StandbyCommand;
 import net.socket.silentgpt.handlers.ClipboardUpdateHandler;
 import net.socket.silentgpt.managers.ClipboardManager;
 import net.socket.silentgpt.managers.CommandManager;
@@ -19,6 +20,7 @@ public class SilentGPT {
 
     private final HttpClient httpClient;
 
+    private boolean standby;
     private boolean notification;
     private boolean rememberConversation;
 
@@ -31,6 +33,7 @@ public class SilentGPT {
         httpClient = new HttpClient(this);
 
         commandManager.register(new CloseCommand());
+        commandManager.register(new StandbyCommand());
         commandManager.register(new NotificationCommand());
         commandManager.register(new RememberConversationCommand());
 
@@ -57,12 +60,32 @@ public class SilentGPT {
         return clipboardManager;
     }
 
+    public void toggleStandby() {
+        standby = !standby;
+    }
+
+    public void setStandby(boolean standby) {
+        this.standby = standby;
+    }
+
+    public boolean isStandby() {
+        return standby;
+    }
+
+    public void toggleRememberConversation() {
+        rememberConversation = !rememberConversation;
+    }
+
     public boolean getRememberConversation() {
         return rememberConversation;
     }
 
     public void setRememberConversation(boolean rememberConversation) {
         this.rememberConversation = rememberConversation;
+    }
+
+    public void toggleNotification() {
+        notification = !notification;
     }
 
     public boolean getNotification() {
