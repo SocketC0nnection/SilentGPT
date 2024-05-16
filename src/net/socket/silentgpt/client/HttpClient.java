@@ -54,7 +54,7 @@ public class HttpClient {
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(new URI("https://aiforcause.deepnight.tech/openai/"))
                     .header("Content-Type", "application/json")
-                    .header("Authorization", "Bearer IDK")
+                    .header("Authorization", "SilentGPT by SocketConnection")
                     .POST(HttpRequest.BodyPublishers.ofString(gson.toJson(object)))
                     .build();
 

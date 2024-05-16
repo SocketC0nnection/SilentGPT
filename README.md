@@ -13,6 +13,10 @@ This tool monitors the clipboard for new copy events, sends the content to the C
 ## Commands
 
 If you want to execute one of the following actions you just have to copy the command into your clipboard
+- Enable / Disable SilentGPT
+```
+SILENTGPT_STANDBY
+```
 - Close SilentGPT
 ```
 SILENTGPT_CLOSE
