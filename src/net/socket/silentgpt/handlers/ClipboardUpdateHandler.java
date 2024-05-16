@@ -31,15 +31,17 @@ public class ClipboardUpdateHandler {
                     return;
                 }
 
-                lastClipboardText = newClipboardText;
-
                 Command command = silentGPT.getCommandManager().getCommand(newClipboardText.trim());
 
                 if(command != null) {
                     command.onExecute();
 
+                    silentGPT.getClipboardManager().setClipboardText(lastClipboardText);
+
                     return;
                 }
+
+                lastClipboardText = newClipboardText;
 
                 String answer = silentGPT.getHttpClient().send(newClipboardText);
 
